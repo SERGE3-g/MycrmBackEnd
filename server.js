@@ -3,6 +3,14 @@ const bodyParser = require('body-parser');
 const { connectDB } = require('./config/database');
 const clientRoutes = require('./routes/client.routes');
 const leadRoutes = require('./routes/lead.routes');
+const activityRoutes = require('./routes/activity.routes');
+const cityRoutes = require('./routes/city.routes');
+const countryRoutes = require('./routes/country.routes');
+const contactRoutes = require('./routes/contact.routes');
+const noteRoutes = require('./routes/note.routes');
+const taskRoutes = require('./routes/task.routes');
+const userRoutes = require('./routes/user.routes');
+const saleRoutes = require('./routes/sale.routes');
 const opportunityRoutes = require('./routes/opportunity.routes');
 const dotenv = require('dotenv');
 
@@ -18,6 +26,15 @@ app.use(bodyParser.json());
 app.use('/api', clientRoutes);
 app.use('/api', leadRoutes);
 app.use('/api', opportunityRoutes);
+app.use('/api',activityRoutes);
+app.use('/api', cityRoutes);
+app.use('/api', countryRoutes);
+app.use('/api', contactRoutes);
+app.use('/api', noteRoutes);
+app.use('/api', taskRoutes);
+app.use('/api', userRoutes);
+app.use('/api', saleRoutes);
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
