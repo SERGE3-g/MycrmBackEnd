@@ -13,12 +13,24 @@ const userRoutes = require('./routes/user.routes');
 const saleRoutes = require('./routes/sale.routes');
 const opportunityRoutes = require('./routes/opportunity.routes');
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 dotenv.config();
 
-connectDB();
+// Configurazione delle opzioni CORS
+const corsOptions = {
+    origin: 'http://localhost:4200', // L'origine della tua app Angular
+    methods: 'GET, POST, PUT, DELETE',
+    allowedHeaders: 'Content-Type, Authorization'
+};
+
+// Utilizzo del middleware CORS
+//app.use(cors(corsOptions));
+
+connectDB().then(r => console.log('Database connected'));
 
 const app = express();
+
 
 app.use(bodyParser.json());
 
